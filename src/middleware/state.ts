@@ -1,9 +1,12 @@
-import {User} from "firebase/auth"
+import { User } from "firebase/auth";
+import { Building } from "../types";
 
 export interface State {
-    user: User | null
+    user: User | null;
+    building: Building | null;
 }
 
 export const initialState: State = {
-    user: null
-}
+    user: null,
+    building: null,
+};
