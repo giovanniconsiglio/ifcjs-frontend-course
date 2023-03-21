@@ -30,6 +30,7 @@ export const executeCore = (action: Action, events: Events) => {
     }
 
     if (action.type === "DELETE_BUILDING") {
+        console.log(action)
         databaseHandler.deleteBuilding(action.payload, events)
     }
 

@@ -3,6 +3,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import ErrorIcon from "@mui/icons-material/GppMaybe";
 import FloorplanIcon from "@mui/icons-material/FindInPage";
 import ModelsIcon from "@mui/icons-material/HolidayVillage";
+import DeleteIcon from '@mui/icons-material/Delete';
 import ListIcon from "@mui/icons-material/ViewList";
 import { Action } from "../../../middleware/actions";
 import { State } from "../../../middleware/state";
@@ -71,6 +72,27 @@ export function getSidebarTools(
       icon: <ListIcon/>,
       action: () => {
         toggleMenu()
+      }
+    },
+    {
+      name: "Back to map",
+      icon: <MapIcon/>,
+      action: () => {
+        dispatch({type: "CLOSE_BUILDING"})
+      }
+    },
+    {
+      name: "Log out",
+      icon: <LogoutIcon/>,
+      action: () => {
+        dispatch({type: "LOGOUT"})
+      }
+    },
+    {
+      name: "Delete button",
+      icon: <DeleteIcon/>,
+      action: () => {
+        dispatch({type: "DELETE_BUILDING", payload: state.building})
       }
     }
   ]

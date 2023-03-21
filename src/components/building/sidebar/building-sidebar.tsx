@@ -9,15 +9,15 @@ import {
 import { getSidebarTools } from "./sidebar-tools";
 import { useAppContext } from "../../../middleware/context-provider";
 
-export const BuildingSidebar: FC<{ 
-  open: boolean ;
-  onToggleMenu: ()=> void
+export const BuildingSidebar: FC<{
+    open: boolean;
+    onToggleMenu: () => void;
 }> = (props) => {
     const { open, onToggleMenu } = props;
     const [state, dispatch] = useAppContext();
 
     const tools = getSidebarTools(state, dispatch, onToggleMenu);
-
+    console.log(tools)
     return (
         <List>
             {tools.map((tool) => (
