@@ -8,16 +8,17 @@ import {
 } from "@mui/material";
 import { getSidebarTools } from "./sidebar-tools";
 import { useAppContext } from "../../../middleware/context-provider";
+import { FrontMenuMode } from "../types";
 
 export const BuildingSidebar: FC<{
     open: boolean;
-    onToggleMenu: () => void;
+    onToggleMenu: (active: boolean, mode?: FrontMenuMode) => void;
 }> = (props) => {
     const { open, onToggleMenu } = props;
     const [state, dispatch] = useAppContext();
 
     const tools = getSidebarTools(state, dispatch, onToggleMenu);
-    console.log(tools)
+    // console.log(tools)
     return (
         <List>
             {tools.map((tool) => (

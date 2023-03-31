@@ -8,6 +8,8 @@ import ListIcon from "@mui/icons-material/ViewList";
 import { Action } from "../../../middleware/actions";
 import { State } from "../../../middleware/state";
 import { Tool } from "../../../types";
+import { FrontMenuMode } from "../types";
+
 
 // interface SideTool {
 //   name: string;
@@ -64,14 +66,21 @@ import { Tool } from "../../../types";
 export function getSidebarTools(
   state: State,
   dispatch: React.Dispatch<Action>,
-  toggleMenu: () => void
+  toggleMenu: (active: boolean, mode?: FrontMenuMode) => void
 ): Tool[] {
   return [
     {
       name: "Info",
       icon: <ListIcon/>,
       action: () => {
-        toggleMenu()
+        toggleMenu(true, "BuildingInfo")
+      }
+    },
+    {
+      name: "ModelList",
+      icon: <ModelsIcon/>,
+      action: () => {
+        toggleMenu(true, "ModelList")
       }
     },
     {
